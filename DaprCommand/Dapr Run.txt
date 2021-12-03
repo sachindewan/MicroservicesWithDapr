@@ -1,0 +1,4 @@
+dapr run --app-id weatherapi --app-port 5001 --dapr-http-port 50001 dotnet run
+
+## putting component in the dapr command other wise runtime will search component in default insatalled path
+dapr run --app-id mvcfront --app-port 5002 --dapr-http-port 50002 dotnet run --components-path "..\components"
