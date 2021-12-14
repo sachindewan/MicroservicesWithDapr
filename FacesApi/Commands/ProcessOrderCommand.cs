@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OrdersApi.Commands
+namespace FacesApi.Commands
 {
-    public class OrderReceivedCommand
+    public class ProcessOrderCommand
     {
-
         public Guid OrderId { get; set; }
-        public string PhotoUrl { get; set; }
         public string UserEmail { get; set; }
         public byte[] ImageData { get; set; }
     }

@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace OrdersApi.Persistence
 {
-    public class OrderRepository: IOrderRepository
+    public class OrderRepository : IOrderRepository
     {
+
         private readonly OrdersContext _context;
 
         public OrderRepository(OrdersContext context)
@@ -24,14 +25,14 @@ namespace OrdersApi.Persistence
 
         public async Task RegisterOrder(Order order)
         {
-            _context.Add(order);
+             _context.Add(order);
             await _context.SaveChangesAsync();
         }
 
-        //public async  Task UpdateOrder(Order order)
-        //{
-        //    _context.Entry(order).State = EntityState.Modified;
-        //    await _context.SaveChangesAsync();
-        //}
+        public async  Task UpdateOrder(Order order)
+        {
+            _context.Entry(order).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
     }
 }
