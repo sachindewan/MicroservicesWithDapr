@@ -2,3 +2,5 @@ dapr run --app-id weatherapi --app-port 5001 --dapr-http-port 50001 dotnet run
 
 ## putting component in the dapr command other wise runtime will search component in default insatalled path
 dapr run --app-id mvcfront --app-port 5002 --dapr-http-port 50002 dotnet run --components-path "..\components"
+
+Long running operation failed with status 'Failed'. Additional Info:'Webhook validation handshake failed for https://hnv1-dev-api.ttecnp.com/service/persontransient/api/v1/supportgestures/webhook-event-grid/process/gesture/support-badge. Http POST request timed out. For troublehooting, visit https://aka.ms/esvalidation. Activity id:0ed3abaf-13c6-4722-9ee1-65db4de9fa13, timestamp: 12/13/2021 10:38:48 AM (UTC).'

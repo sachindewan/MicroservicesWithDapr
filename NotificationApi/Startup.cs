@@ -1,18 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using OrdersApi.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OrdersApi
+namespace NotificationApi
 {
     public class Startup
     {
@@ -27,18 +25,8 @@ namespace OrdersApi
         public void ConfigureServices(IServiceCollection services)
         {
 
-
-
-
-            services.AddDbContext<OrdersContext>(options =>
-               options.UseSqlServer(
-                Configuration.GetConnectionString("OrdersConnection")
-                ));
-            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddControllers().AddDapr();
         }
-
-         
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -57,9 +45,6 @@ namespace OrdersApi
                 endpoints.MapControllers();
                 endpoints.MapSubscribeHandler();
             });
-            
         }
-
-         
     }
 }

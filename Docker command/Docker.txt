@@ -1,3 +1,5 @@
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password1!" -p 1455:1433 --name DaprOrderSql -d mcr.microsoft.com/mssql/server:2019-latest
 =======================Link dapr redis cli =====================
 docker run --rm -it --link dapr_redis redis redis-cli -h dapr_redis
+================docker mail dev server==========================================
+docker run -d -p 4000:80 -p 4025:25 --name fds-maildev maildev/maildev:latest
